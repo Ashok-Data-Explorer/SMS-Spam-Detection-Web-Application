@@ -97,4 +97,4 @@ def view_feedback():
         return "<h1>User Feedback</h1><p>No feedback has been submitted yet.</p>"
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
