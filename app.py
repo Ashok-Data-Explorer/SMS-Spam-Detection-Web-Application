@@ -61,14 +61,16 @@ def predict():
         if not message.strip():
             flash("Please enter a message to predict.", "warning")
             return redirect('/')
-            # **Check if input contains only English letters, spaces, basic punctuation, and line breaks**
-       if not re.match(r"^[a-zA-Z\s.,'!?;:\-()\"'\n]+$", message):
-          flash("Invalid input. Only English letters, spaces, basic punctuation, and line breaks are allowed.", "warning")
-          return redirect('/')
         # Check if message exceeds 160 characters
       if len(message) > 160:
          flash("The message is too long (more than 160 characters). Please shorten it and try again.", "warning")
          return redirect('/')
+
+# **Check if input contains only English letters, spaces, basic punctuation, and line breaks**
+if not re.match(r"^[a-zA-Z\s.,'!?;:\-()\"'\n]+$", message):
+    flash("Invalid input. Only English letters, spaces, basic punctuation, and line breaks are allowed.", "warning")
+    return redirect('/')
+
 
         
 
