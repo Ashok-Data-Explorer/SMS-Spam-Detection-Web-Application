@@ -63,8 +63,8 @@ def predict():
             return redirect('/')
 
                 # **Check if input contains only English letters and spaces**
-        if not re.match(r'^[a-zA-Z\s]+$', message):
-            flash("Invalid input. Only English letters and spaces are allowed.", "warning")
+        if not re.match(r"^[a-zA-Z\s.,'!]+$", message):
+            flash("Invalid input. Only English letters, spaces, and basic punctuation are allowed.", "warning")
             return redirect('/')
 
         # Check if message exceeds 160 characters
