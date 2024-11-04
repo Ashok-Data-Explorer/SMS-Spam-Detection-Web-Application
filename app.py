@@ -62,10 +62,17 @@ def predict():
             flash("Please enter a message to predict.", "warning")
             return redirect('/')
 
+                # **Check if input contains only English letters and spaces**
+        if not re.match(r'^[a-zA-Z\s]+$', message):
+            flash("Invalid input. Only English letters and spaces are allowed.", "warning")
+            return redirect('/')
+
         # Check if message exceeds 160 characters
         if len(message) > 160:
             flash("The message is too long (more than 160 characters). Please shorten it and try again.", "warning")
             return redirect('/')
+
+        
 
         # Preprocess and predict
         processed_message = lemmatizing(message)
